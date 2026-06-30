@@ -1,0 +1,26 @@
+package org.example;
+
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Component;
+
+//@Component("userbean")
+public class UserService implements BeanNameAware , ApplicationContextAware {
+    public UserService(){
+        System.out.println("UserService constructor called");
+    }
+
+    @Override
+    //Spring do it by itSelf and these methods are called callback function and this function is called by the ioc container by itself
+
+    public void setBeanName(String name) {
+        System.out.println("Bean name is : "+name);
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        System.out.println("ApplicationContext name is : " + applicationContext.getClass());
+    }
+}
