@@ -1,27 +1,24 @@
 package org.example;
 
-import org.springframework.stereotype.Component;
-
-// @Component tells Spring IOC Container —
-// "create and manage the bean of this class"
-// BUT this will cause an ERROR at runtime!
-// Because Spring does not know what values to pass
-// for String name and int age in the constructor
-//@Component
+/*
+ @Component is REMOVED from here —
+ because we are creating the User bean manually in AppConfig using @Bean
+ Using both @Component and @Bean for the same class causes BeanCreationException
+*/
 public class User {
-
     private String name;
     private int age;
 
-    // Spring will try to call this constructor to create the bean
-    // But it cannot find String and int values to inject
-    // This will cause — NoSuchBeanDefinitionException or BeanCreationException
+    /*
+     Spring cannot call this constructor on its own —
+     because it does not know what values to pass for String and int
+     That is why we create the bean manually in AppConfig
+    */
     public User(String name, int age) {
         this.name = name;
         this.age = age;
     }
 
-    // Getter and Setter for name
     public String getName() {
         return name;
     }
@@ -30,7 +27,6 @@ public class User {
         this.name = name;
     }
 
-    // Getter and Setter for age
     public int getAge() {
         return age;
     }

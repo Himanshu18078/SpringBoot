@@ -7,6 +7,6 @@ import org.springframework.stereotype.Component;
 //@Qualifier("cp")
 public class CardPayment implements PaymentService{
     public void pay(){
-        System.out.println("Payment done through card....");
+        System.out.println("Payment done via card...");
     }
 }

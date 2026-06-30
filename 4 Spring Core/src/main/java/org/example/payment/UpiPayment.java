@@ -5,10 +5,10 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 //@Component
+//@Primary //This is to give Priority if we have multiple bean of same type
 //@Qualifier("up")
-//@Primary
-public class UPIPayment implements PaymentService{
+public class UpiPayment implements PaymentService{
     public void pay(){
-        System.out.println("Payment Done Through UPI");
+        System.out.println("Payment done via UPI");
     }
 }
